@@ -1,0 +1,146 @@
+/*:root {
+ --primary-bg-color: #f4f4f4;
+  --text-color: #333;
+  --main-bg-color: #333;
+  --main-text-color: #fff;
+  --main-btn-bg-color: #938989; 
+}*/
+
+body,
+h1,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #fdcedb, #c2dffc);
+}
+
+/* Add additional styles as needed */
+
+/* Create a container for the main content */
+.container {
+  max-width: 1000px;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Header styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.274);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* légère bordure */
+  overflow: hidden;
+}
+
+/* Navigation styling */
+nav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 27px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  vertical-align: top;
+  line-height: 65%;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Media player styling */
+.media-player {
+  position: relative;
+  display: inline-block;
+  margin: 10%;
+}
+
+#custom-video-player {
+  width: 100%;
+  display: block;
+}
+
+.custom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1px 4px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+.custom-controls button {
+  background-color: var(--main-btn-bg-color);
+  filter: invert(1);
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 93%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background-color: white; /* visible sur ton fond dégradé */
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* Footer styling */
+footer {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
