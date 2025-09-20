@@ -121,11 +121,15 @@ nav ul li a:hover {
 }
 
 .progress-bar {
-  width: 93%;
+  width: 83%;
   height: 5px;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 3px;
   overflow: hidden;
+}
+
+.progress-bar:hover {
+  cursor: pointer;
 }
 
 .progress-bar span {
@@ -143,4 +147,23 @@ footer {
   text-align: center;
   padding: 10px 0;
   width: 100%;
+}
+
+#fullscreen-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+}
+
+#fullscreen-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: invert(1);
+  margin-bottom: 4px;
 }
