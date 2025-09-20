@@ -6,6 +6,7 @@ const progressBar = document.querySelector("#progress-bar-fill");
 video.removeAttribute("controls");
 // playPauseBtn.addEventListener("click", togglePlayPause);
 video.addEventListener("timeupdate", updateProgressBar);
+
 function togglePlayPause() {
   if (video.paused || video.ended) {
     video.play();
@@ -74,4 +75,44 @@ video.addEventListener("dblclick", () => {
     fullscreenImg.src =
       "https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"; // icône "plein écran"
   }
+});
+
+const jumpButtons = document.querySelectorAll(".jump-buttons button");
+jumpButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const time = parseFloat(btn.dataset.time);
+    video.currentTime = time;
+    video.play(); // si tu veux qu'elle joue après le saut
+  });
+});
+
+// --- Nouvelle fonctionnalité : Step buttons highlight ---
+const stepButtons = document.querySelectorAll(".step-btn");
+
+// Quand je clique sur un bouton → la vidéo saute au bon moment
+stepButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const time = parseInt(btn.getAttribute("data-time"));
+    video.currentTime = time;
+    video.play();
+
+    // Active uniquement le bouton cliqué
+    stepButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+// Pendant la lecture → mettre à jour quelle étape est active
+video.addEventListener("timeupdate", () => {
+  stepButtons.forEach((btn, index) => {
+    const time = parseInt(btn.getAttribute("data-time"));
+    const nextTime = stepButtons[index + 1]
+      ? parseInt(stepButtons[index + 1].getAttribute("data-time"))
+      : video.duration;
+
+    if (video.currentTime >= time && video.currentTime < nextTime) {
+      stepButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+  });
 });
